@@ -4,8 +4,13 @@
 
 <div class="page">
 	<div class="section">
-		<h1>ผลคะแนนกีฬาสี</h1>
-		<h2>Sports Scoreboard</h2>
+		<div class="title">
+			<img src="/sport.webp" alt="Sports" />
+			<div>
+				<h1>ผลคะแนนกีฬาสี</h1>
+				<h2>Sports Scoreboard</h2>
+			</div>
+		</div>
 
 		<QuadChart />
 
@@ -21,3 +26,16 @@
 		<!-- Sport previews -->
 	</div>
 </div>
+
+<style>
+	.title {
+		display: flex;
+		flex-direction: row;
+	}
+
+	img {
+		/* position: absolute; */
+		width: 17rem;
+		z-index: 0;
+	}
+</style>
