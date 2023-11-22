@@ -1,15 +1,16 @@
 <script lang="ts">
 	import { Bar } from 'svelte-chartjs';
-	import { data } from './../index';
-
 	import { Chart, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
+	import { colours } from '$lib/colours';
 
 	Chart.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 
 	const chartOptions = {
+		// maintainAspectRatio: false,
+		// responvie: true,
 		scales: {
-			x: { display: false }, // Hide x-axis
-			y: { display: false } // Hide y-axis
+			x: { display: false } // Hide x-axis
+			// y: { display: false } // Hide y-axis
 		},
 		plugins: {
 			legend: { display: false }, // Hide legend
@@ -27,6 +28,20 @@
 				borderRadius: 22 // Set border radius for the bars
 			}
 		}
+	};
+
+	export let scores: Array<number>;
+
+	const data = {
+		labels: ['Red', 'Blue', 'Yellow', 'Green'],
+		datasets: [
+			{
+				label: 'Victories',
+				data: scores,
+				backgroundColor: [colours.red, colours.yellow, colours.green, colours.blue],
+				hoverBackgroundColor: [colours.red, colours.yellow, colours.green, colours.blue]
+			}
+		]
 	};
 </script>
 
