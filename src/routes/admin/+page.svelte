@@ -1,12 +1,30 @@
 <script lang="ts">
 	import { db } from '$lib/firebase';
-	import { doc, increment, updateDoc } from 'firebase/firestore';
+	import MatchForm from '$lib/components/MatchForm.svelte';
+	import { addDoc, collection, doc, increment, updateDoc } from 'firebase/firestore';
 
 	const mainRef = doc(db, 'matches', 'main_score');
 
 	async function addScore(color: string) {
 		await updateDoc(mainRef, {
 			[color]: increment(1)
+		});
+	}
+
+	const matchesRef = collection(db, 'matches');
+
+	async function createDuo() {
+		await addDoc(matchesRef, {
+			title: 'บาสเกตบอลชาย',
+			matchType: 'duo',
+			teamColors: {
+				color1: 'red',
+				color2: 'yellow'
+			},
+			scores: {
+				color1: 15,
+				color2: 10
+			}
 		});
 	}
 </script>
@@ -20,7 +38,11 @@
 			<button class="green" on:click={() => addScore('greenScore')}>Green</button>
 			<button class="blue" on:click={() => addScore('blueScore')}>Blue</button>
 		</div>
+
+		<MatchForm />
 	</div>
+
+	<button on:click={createDuo}>TEST</button>
 </div>
 
 <style lang="scss">

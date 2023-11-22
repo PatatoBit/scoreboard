@@ -20,7 +20,7 @@
 		} else if (blueScore > yellowScore && blueScore > redScore && blueScore > greenScore) {
 			return 'Blue';
 		} else {
-			return "It's a tie";
+			return 'No one';
 		}
 	}
 
