@@ -25,8 +25,8 @@
 <div class="page">
 	<div class="section">
 		<div class="title">
-			<img src="/sport.webp" alt="Sports" style="object-fit:cover" />
-			<div>
+			<img src="/sport.webp" alt="Sports" style="object-fit:contain" />
+			<div class="text-title">
 				<h1>ผลคะแนนรวมกีฬาสี</h1>
 				<h2>Total Scores</h2>
 			</div>
@@ -73,8 +73,15 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
+		flex: 2;
 
 		/* text-align: center; */
+	}
+
+	.text-title {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 
 	img {
@@ -92,6 +99,6 @@
 	}
 
 	.main-chart {
-		height: 30rem;
+		flex: 5;
 	}
 </style>
