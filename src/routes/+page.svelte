@@ -25,21 +25,23 @@
 <div class="page">
 	<div class="section">
 		<div class="title">
-			<img src="/sport.webp" alt="Sports" />
+			<img src="/sport.webp" alt="Sports" style="object-fit:cover" />
 			<div>
 				<h1>ผลคะแนนรวมกีฬาสี</h1>
 				<h2>Total Scores</h2>
 			</div>
 		</div>
 
-		<QuadChart
-			scores={[
-				running400.redScore,
-				running400.yellowScore,
-				running400.greenScore,
-				running400.blueScore
-			]}
-		/>
+		<div class="main-chart">
+			<QuadChart
+				scores={[
+					running400.redScore,
+					running400.yellowScore,
+					running400.greenScore,
+					running400.blueScore
+				]}
+			/>
+		</div>
 
 		<p style="text-align: center">
 			<strong>{getLeadingColor(running400)}</strong> is currently in the lead
@@ -70,6 +72,9 @@
 	.title {
 		display: flex;
 		flex-direction: row;
+		flex-wrap: wrap;
+
+		/* text-align: center; */
 	}
 
 	img {
@@ -81,7 +86,12 @@
 	.matches {
 		display: flex;
 		flex-direction: column;
+		overflow-y: scroll;
 
-		gap: 2rem;
+		gap: 1rem;
+	}
+
+	.main-chart {
+		height: 30rem;
 	}
 </style>

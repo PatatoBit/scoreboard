@@ -6,7 +6,7 @@
 	Chart.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 
 	const chartOptions = {
-		// maintainAspectRatio: false,
+		maintainAspectRatio: false,
 		// responvie: true,
 		scales: {
 			x: { display: false } // Hide x-axis
@@ -45,4 +45,16 @@
 	};
 </script>
 
-<Bar {data} options={chartOptions} />
+<div class="bar-container">
+	<Bar {data} options={chartOptions} />
+</div>
+
+<style lang="scss">
+	.bar-container {
+		position: relative;
+		margin: auto;
+		width: 100%;
+		height: 100%;
+		/* aspect-ratio: 5/3; */
+	}
+</style>

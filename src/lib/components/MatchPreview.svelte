@@ -9,8 +9,10 @@
 </script>
 
 <div class="preview">
-	<h3><strong>{title}</strong></h3>
-	<p>• {status}</p>
+	<span>
+		<h3><strong>{title}</strong></h3>
+		<p>• {status}</p>
+	</span>
 
 	<!-- Sport previews -->
 
@@ -24,7 +26,9 @@
 			/>
 		{/each}
 	{:else}
-		<QuadChart scores={[data.redScore, data.yellowScore, data.greenScore, data.blueScore]} />
+		<div class="preview-chart">
+			<QuadChart scores={[data.redScore, data.yellowScore, data.greenScore, data.blueScore]} />
+		</div>
 	{/if}
 
 	<hr />
@@ -39,5 +43,10 @@
 
 	hr {
 		border: 1px dashed rgb(177, 177, 177);
+	}
+
+	.preview-chart {
+		width: 100%;
+		height: 10rem;
 	}
 </style>
