@@ -13,8 +13,6 @@
 		color: white;
 		padding: 1em;
 		text-align: center;
-		position: absolute;
-		bottom: 0;
 		width: 100%;
 	}
 

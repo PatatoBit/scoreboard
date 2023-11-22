@@ -4,7 +4,9 @@
 	import DuoBar from '$lib/components/DuoBar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import MatchPreview from '$lib/components/MatchPreview.svelte';
+	import { doc, onSnapshot } from 'firebase/firestore';
 	import QuadChart from '../lib/components/QuadChart.svelte';
+	import { db } from '$lib/firebase';
 
 	function getLeadingColor(match: QuadMatch): string {
 		const { redScore, yellowScore, greenScore, blueScore } = match;
@@ -21,6 +23,20 @@
 			return "It's a tie";
 		}
 	}
+
+	let data: QuadMatch = {
+		redScore: 0,
+		yellowScore: 0,
+		greenScore: 0,
+		blueScore: 0
+	};
+
+	const mainRef = doc(db, 'matches', 'main_score');
+
+	const unsub = onSnapshot(mainRef, (doc) => {
+		data = doc.data() as QuadMatch;
+		console.table(data);
+	});
 </script>
 
 <div class="page">
@@ -34,18 +50,11 @@
 		</div>
 
 		<div class="main-chart">
-			<QuadChart
-				scores={[
-					running400.redScore,
-					running400.yellowScore,
-					running400.greenScore,
-					running400.blueScore
-				]}
-			/>
+			<QuadChart scores={[data.redScore, data.yellowScore, data.greenScore, data.blueScore]} />
 		</div>
 
 		<p style="text-align: center">
-			<strong>{getLeadingColor(running400)}</strong> is currently in the lead
+			<strong>{getLeadingColor(data)}</strong> is currently in the lead
 		</p>
 	</div>
 
