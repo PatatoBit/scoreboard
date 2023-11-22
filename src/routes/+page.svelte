@@ -2,6 +2,7 @@
 	import { basketballData, running400, type QuadMatch } from '$lib';
 	import { colours } from '$lib/colours';
 	import DuoBar from '$lib/components/DuoBar.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 	import MatchPreview from '$lib/components/MatchPreview.svelte';
 	import QuadChart from '../lib/components/QuadChart.svelte';
 
@@ -67,6 +68,8 @@
 		</div>
 	</div>
 </div>
+
+<Footer />
 
 <style>
 	.title {
