@@ -1,10 +1,13 @@
 <script lang="ts">
-	import { basketballData, running400, type QuadMatch } from '$lib';
+	import type { DuoMatch, QuadMatch } from '$lib';
 	import { colours } from '$lib/colours';
 	import DuoBar from '$lib/components/DuoBar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import MatchPreview from '$lib/components/MatchPreview.svelte';
+	import { collection, doc, onSnapshot, orderBy, query, where } from 'firebase/firestore';
 	import QuadChart from '../lib/components/QuadChart.svelte';
+	import { db } from '$lib/firebase';
+	import { onDestroy } from 'svelte';
 
 	function getLeadingColor(match: QuadMatch): string {
 		const { redScore, yellowScore, greenScore, blueScore } = match;
@@ -18,9 +21,42 @@
 		} else if (blueScore > yellowScore && blueScore > redScore && blueScore > greenScore) {
 			return 'Blue';
 		} else {
-			return "It's a tie";
+			return 'No one';
 		}
 	}
+
+	let data: QuadMatch = {
+		title: 'Loading...',
+		createdAt: 'Loading...',
+		redScore: 0,
+		yellowScore: 0,
+		greenScore: 0,
+		blueScore: 0
+	};
+
+	let matches: Array<DuoMatch | QuadMatch> = [];
+
+	const mainRef = doc(db, 'matches', 'main_score');
+
+	const ubsubMain = onSnapshot(mainRef, (doc) => {
+		data = doc.data() as QuadMatch;
+	});
+
+	const matchQuery = query(collection(db, 'matches'), orderBy('createdAt'));
+
+	const ubsubMatches = onSnapshot(matchQuery, (snapshot) => {
+		matches = [];
+		snapshot.forEach((doc) => {
+			matches = [...matches, doc.data() as DuoMatch | QuadMatch];
+		});
+
+		console.table(matches);
+	});
+
+	onDestroy(() => {
+		ubsubMain();
+		ubsubMatches();
+	});
 </script>
 
 <div class="page">
@@ -34,18 +70,11 @@
 		</div>
 
 		<div class="main-chart">
-			<QuadChart
-				scores={[
-					running400.redScore,
-					running400.yellowScore,
-					running400.greenScore,
-					running400.blueScore
-				]}
-			/>
+			<QuadChart scores={[data.redScore, data.yellowScore, data.greenScore, data.blueScore]} />
 		</div>
 
 		<p style="text-align: center">
-			<strong>{getLeadingColor(running400)}</strong> is currently in the lead
+			<strong>{getLeadingColor(data)}</strong> is currently in the lead
 		</p>
 	</div>
 
@@ -57,14 +86,10 @@
 
 		<!-- Sport previews -->
 		<div class="matches">
-			<MatchPreview title="บาสเกตบอลชาย" status="On Going" data={basketballData} />
-			<MatchPreview title="วิ่ง 4x100" status="Finished" data={running400} />
-
-			<MatchPreview title="บาสเกตบอลชาย" status="On Going" data={basketballData} />
-			<MatchPreview title="วิ่ง 4x100" status="Finished" data={running400} />
-
-			<MatchPreview title="บาสเกตบอลชาย" status="On Going" data={basketballData} />
-			<MatchPreview title="วิ่ง 4x100" status="Finished" data={running400} />
+			{#each matches as match}
+				<!-- content here -->
+				<MatchPreview title={match.title} data={match} />
+			{/each}
 		</div>
 	</div>
 </div>

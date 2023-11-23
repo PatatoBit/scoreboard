@@ -14,37 +14,24 @@ export const data = {
 };
 
 export interface DuoMatch {
-	team1: string;
-	team2: string;
-	score1: number;
-	score2: number;
+	title: string;
+	createdAt: string;
+	colors: {
+		color1: string;
+		color2: string;
+	};
+
+	scores: {
+		score1: number;
+		score2: number;
+	};
 }
 
 export interface QuadMatch {
+	title: string;
+	createdAt: string;
 	redScore: number;
 	yellowScore: number;
 	greenScore: number;
 	blueScore: number;
 }
-
-export const basketballData: DuoMatch[] = [
-	{
-		team1: colours.red,
-		team2: colours.blue,
-		score1: 10,
-		score2: 23
-	},
-	{
-		team1: colours.yellow,
-		team2: colours.green,
-		score1: 2,
-		score2: 1
-	}
-];
-
-export const running400: QuadMatch = {
-	redScore: 20,
-	yellowScore: 40,
-	greenScore: 1,
-	blueScore: 2
-};

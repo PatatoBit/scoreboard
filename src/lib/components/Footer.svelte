@@ -5,6 +5,7 @@
 
 <footer>
 	<p>&copy; {year} Made with 🪄 by Patato</p>
+	<a href="/admin">Admin</a>
 </footer>
 
 <style>
@@ -13,8 +14,6 @@
 		color: white;
 		padding: 1em;
 		text-align: center;
-		position: absolute;
-		bottom: 0;
 		width: 100%;
 	}
 

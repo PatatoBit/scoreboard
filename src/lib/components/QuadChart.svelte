@@ -43,6 +43,8 @@
 			}
 		]
 	};
+
+	$: data.datasets[0].data = scores.slice();
 </script>
 
 <div class="bar-container">
