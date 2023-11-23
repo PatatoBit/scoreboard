@@ -1,6 +1,31 @@
+<script lang="ts">
+	import { goto } from '$app/navigation';
+	import { db } from '$lib/firebase';
+	import { addDoc, collection } from 'firebase/firestore';
+
+	let title: string;
+
+	async function createQuad() {
+		const quadRef = collection(db, 'matches');
+
+		await addDoc(quadRef, {
+			title,
+			createdAt: Date.now().toString(),
+			redScore: 0,
+			yellowScore: 0,
+			greenScore: 0,
+			blueScore: 0
+		}).then(() => {
+			goto('/admin');
+		});
+	}
+</script>
+
 <main class="page">
-	<form>
-		<input type="text" placeholder="Title" required />
+	<form on:submit|preventDefault={createQuad}>
+		<input type="text" placeholder="Title" required bind:value={title} />
 		<button type="submit" value="Submit">Create</button>
 	</form>
+
+	<a href="/admin">Back</a>
 </main>
