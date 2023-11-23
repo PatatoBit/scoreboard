@@ -4,7 +4,6 @@
 	import DuoBar from './DuoBar.svelte';
 
 	export let title: string;
-	export let status: string;
 	export let data: DuoMatch | QuadMatch;
 
 	function instanceOfDuoMatch(object: any): object is DuoMatch {
@@ -19,7 +18,6 @@
 <div class="preview">
 	<span>
 		<h3><strong>{title}</strong></h3>
-		<p>• {status}</p>
 	</span>
 
 	<!-- Sport previews -->

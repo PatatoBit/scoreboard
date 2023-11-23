@@ -88,7 +88,7 @@
 		<div class="matches">
 			{#each matches as match}
 				<!-- content here -->
-				<MatchPreview title={match.title} status="On Going" data={match} />
+				<MatchPreview title={match.title} data={match} />
 			{/each}
 		</div>
 	</div>
