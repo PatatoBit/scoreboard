@@ -10,7 +10,7 @@
 
 		await addDoc(quadRef, {
 			title,
-			createdAt: Date.now().toString(),
+			createdAt: Date.now(),
 			redScore: 0,
 			yellowScore: 0,
 			greenScore: 0,

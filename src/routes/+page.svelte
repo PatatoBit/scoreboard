@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { basketballData, running400, type QuadMatch } from '$lib';
+	import type { DuoMatch, QuadMatch } from '$lib';
 	import { colours } from '$lib/colours';
 	import DuoBar from '$lib/components/DuoBar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import MatchPreview from '$lib/components/MatchPreview.svelte';
-	import { doc, onSnapshot } from 'firebase/firestore';
+	import { collection, doc, onSnapshot, orderBy, query, where } from 'firebase/firestore';
 	import QuadChart from '../lib/components/QuadChart.svelte';
 	import { db } from '$lib/firebase';
 	import { onDestroy } from 'svelte';
@@ -26,20 +26,36 @@
 	}
 
 	let data: QuadMatch = {
+		title: 'Loading...',
+		createdAt: 'Loading...',
 		redScore: 0,
 		yellowScore: 0,
 		greenScore: 0,
 		blueScore: 0
 	};
 
+	let matches: Array<DuoMatch | QuadMatch> = [];
+
 	const mainRef = doc(db, 'matches', 'main_score');
 
-	const unsub = onSnapshot(mainRef, (doc) => {
+	const ubsubMain = onSnapshot(mainRef, (doc) => {
 		data = doc.data() as QuadMatch;
 	});
 
+	const matchQuery = query(collection(db, 'matches'), orderBy('createdAt'));
+
+	const ubsubMatches = onSnapshot(matchQuery, (snapshot) => {
+		matches = [];
+		snapshot.forEach((doc) => {
+			matches = [...matches, doc.data() as DuoMatch | QuadMatch];
+		});
+
+		console.table(matches);
+	});
+
 	onDestroy(() => {
-		unsub();
+		ubsubMain();
+		ubsubMatches();
 	});
 </script>
 
@@ -70,14 +86,10 @@
 
 		<!-- Sport previews -->
 		<div class="matches">
-			<MatchPreview title="บาสเกตบอลชาย" status="On Going" data={basketballData} />
-			<MatchPreview title="วิ่ง 4x100" status="Finished" data={running400} />
-
-			<MatchPreview title="บาสเกตบอลชาย" status="On Going" data={basketballData} />
-			<MatchPreview title="วิ่ง 4x100" status="Finished" data={running400} />
-
-			<MatchPreview title="บาสเกตบอลชาย" status="On Going" data={basketballData} />
-			<MatchPreview title="วิ่ง 4x100" status="Finished" data={running400} />
+			{#each matches as match}
+				<!-- content here -->
+				<MatchPreview title={match.title} status="On Going" data={match} />
+			{/each}
 		</div>
 	</div>
 </div>

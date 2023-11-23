@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { colours } from '$lib/colours';
 	import { db } from '$lib/firebase';
 	import { addDoc, collection } from 'firebase/firestore';
 
@@ -14,7 +15,7 @@
 
 		await addDoc(duoRef, {
 			title,
-			createdAt: Date.now().toString(),
+			createdAt: Date.now(),
 			colors: {
 				color1,
 				color2
@@ -36,18 +37,18 @@
 
 		<label for="color1">Color 1:</label>
 		<select bind:value={color1}>
-			<option value="red">Red</option>
-			<option value="yellow">Yellow</option>
-			<option value="green">Green</option>
-			<option value="blue">Blue</option>
+			<option value={colours.red}>Red</option>
+			<option value={colours.yellow}>Yellow</option>
+			<option value={colours.green}>Green</option>
+			<option value={colours.blue}>Blue</option>
 		</select>
 
 		<label for="color2">Color 2:</label>
 		<select bind:value={color2}>
-			<option value="red">Red</option>
-			<option value="yellow">Yellow</option>
-			<option value="green">Green</option>
-			<option value="blue">Blue</option>
+			<option value={colours.red}>Red</option>
+			<option value={colours.yellow}>Yellow</option>
+			<option value={colours.green}>Green</option>
+			<option value={colours.blue}>Blue</option>
 		</select>
 
 		<input type="submit" value="Submit" />
