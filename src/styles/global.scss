@@ -82,3 +82,31 @@ button {
 	flex-direction: column;
 	gap: 1rem;
 }
+
+// Simple styling for form with text input, dropdown select, and a submit button
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	label {
+		font-weight: 700;
+	}
+
+	input,
+	select {
+		padding: 0.5rem 1rem;
+		border-radius: 0.5rem;
+		border: 1px solid $text;
+	}
+
+	select {
+		appearance: none;
+	}
+
+	button[type='submit'] {
+		background-color: $green;
+		color: white;
+		border: none;
+	}
+}

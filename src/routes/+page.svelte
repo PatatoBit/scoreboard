@@ -7,6 +7,7 @@
 	import { doc, onSnapshot } from 'firebase/firestore';
 	import QuadChart from '../lib/components/QuadChart.svelte';
 	import { db } from '$lib/firebase';
+	import { onDestroy } from 'svelte';
 
 	function getLeadingColor(match: QuadMatch): string {
 		const { redScore, yellowScore, greenScore, blueScore } = match;
@@ -35,7 +36,10 @@
 
 	const unsub = onSnapshot(mainRef, (doc) => {
 		data = doc.data() as QuadMatch;
-		console.table(data);
+	});
+
+	onDestroy(() => {
+		unsub();
 	});
 </script>
 

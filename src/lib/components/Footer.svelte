@@ -5,6 +5,7 @@
 
 <footer>
 	<p>&copy; {year} Made with 🪄 by Patato</p>
+	<a href="/admin">Admin</a>
 </footer>
 
 <style>
