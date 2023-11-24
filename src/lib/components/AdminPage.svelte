@@ -30,7 +30,23 @@
 	const matchesUnsub = onSnapshot(matchesRef, (snapshot) => {
 		matches = [];
 		snapshot.forEach((doc) => {
-			matches = [...matches, doc.data() as DuoMatch | QuadMatch];
+			const data = doc.data();
+
+			if ('redScore' in data) {
+				// It's a QuadMatch
+				matches.push({
+					id: doc.id,
+					...data
+				} as QuadMatch);
+			} else if ('colors' in data) {
+				// It's a DuoMatch
+				matches.push({
+					id: doc.id,
+					...data
+				} as DuoMatch);
+			}
+
+			console.table(data);
 		});
 	});
 
@@ -63,7 +79,7 @@
 				<h3><strong>{match.title}</strong></h3>
 				<p>{new Date(match.createdAt).toLocaleString()}</p>
 
-				<a href="/admin/{match.createdAt}">Edit 📝</a>
+				<a href="/admin/{match.id}">Edit 📝</a>
 			</div>
 		{/each}
 	</div>

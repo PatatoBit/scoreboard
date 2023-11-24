@@ -15,6 +15,7 @@ export const data = {
 
 export interface DuoMatch {
 	title: string;
+	id: string;
 	createdAt: string;
 	colors: {
 		color1: string;
@@ -29,6 +30,7 @@ export interface DuoMatch {
 
 export interface QuadMatch {
 	title: string;
+	id: string;
 	createdAt: string;
 	redScore: number;
 	yellowScore: number;

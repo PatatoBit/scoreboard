@@ -27,6 +27,7 @@
 
 	let data: QuadMatch = {
 		title: 'Loading...',
+		id: '000000',
 		createdAt: 'Loading...',
 		redScore: 0,
 		yellowScore: 0,
