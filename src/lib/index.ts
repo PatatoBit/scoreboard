@@ -37,3 +37,9 @@ export interface QuadMatch {
 	greenScore: number;
 	blueScore: number;
 }
+
+export function isDuoMatch(matchData: object) {
+	if ('redScore' in matchData) return false;
+	else if ('colors' in matchData) return true;
+	else return null;
+}

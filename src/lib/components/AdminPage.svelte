@@ -11,7 +11,7 @@
 	import { db } from '$lib/firebase';
 	import { signOut } from '$lib/auth';
 	import { onDestroy } from 'svelte';
-	import type { DuoMatch, QuadMatch } from '$lib';
+	import { isDuoMatch, type DuoMatch, type QuadMatch } from '$lib';
 
 	import { page } from '$app/stores';
 
@@ -32,13 +32,13 @@
 		snapshot.forEach((doc) => {
 			const data = doc.data();
 
-			if ('redScore' in data) {
+			if (!isDuoMatch(data)) {
 				// It's a QuadMatch
 				matches.push({
 					id: doc.id,
 					...data
 				} as QuadMatch);
-			} else if ('colors' in data) {
+			} else {
 				// It's a DuoMatch
 				matches.push({
 					id: doc.id,

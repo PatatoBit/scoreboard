@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { db } from '$lib/firebase';
-	import { doc, onSnapshot } from 'firebase/firestore';
+	import { collection, doc, onSnapshot, query, where } from 'firebase/firestore';
 	import type { matchPage } from './+page';
 	import type { DuoMatch, QuadMatch } from '$lib';
 
@@ -18,3 +18,6 @@
 </script>
 
 <h1>{data.id}</h1>
+<p>{JSON.stringify(match)}</p>
+
+<!-- If match is a type of DuoMatch -->
