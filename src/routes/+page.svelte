@@ -49,8 +49,6 @@
 		snapshot.forEach((doc) => {
 			matches = [...matches, doc.data() as DuoMatch | QuadMatch];
 		});
-
-		console.table(matches);
 	});
 
 	onDestroy(() => {
