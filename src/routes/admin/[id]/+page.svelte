@@ -50,7 +50,7 @@
 	async function deleteMatch() {
 		try {
 			await deleteDoc(docRef).then(() => {
-				goto('/admin');
+				goto('/admin', { replaceState: true }).then(() => location.reload());
 			});
 		} catch (error) {
 			console.error('Error removing document: ', error);
