@@ -89,14 +89,12 @@
 		<p>{match.redScore}</p>
 		<button on:click={() => addQuad(1, 1)}>+</button>
 		<button on:click={() => addQuad(1, -1)}>-</button>
-		<button>-</button>
 	</div>
 
 	<div>
 		<p>{match.yellowScore}</p>
 		<button on:click={() => addQuad(2, 1)}>+</button>
 		<button on:click={() => addQuad(2, -1)}>-</button>
-		<button>-</button>
 	</div>
 
 	<div>
@@ -114,6 +112,7 @@
 	<p>else</p>
 {/if}
 
+<a href="/admin">Back</a>
 <button on:click={deleteMatch}>Delete</button>
 
 <!-- If match is a type of DuoMatch -->
