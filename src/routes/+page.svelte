@@ -43,7 +43,7 @@
 		data = doc.data() as QuadMatch;
 	});
 
-	const matchQuery = query(collection(db, 'matches'), orderBy('createdAt'));
+	const matchQuery = query(collection(db, 'matches'), orderBy('createdAt', 'desc'));
 
 	const ubsubMatches = onSnapshot(matchQuery, (snapshot) => {
 		matches = [];

@@ -23,7 +23,7 @@
 		});
 	}
 
-	const matchesRef = query(collection(db, 'matches'), orderBy('createdAt'));
+	const matchesRef = query(collection(db, 'matches'), orderBy('createdAt', 'desc'));
 
 	let matches: Array<DuoMatch | QuadMatch> = [];
 
