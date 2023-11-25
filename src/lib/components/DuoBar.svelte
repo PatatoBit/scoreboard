@@ -7,10 +7,10 @@
 </script>
 
 <div class="bar-container">
-	<div class="bar1" style="--score1:{score1}; --color1:{color1}">
+	<div class="bar1" style="--score1:{score1 ? score1 : 1}; --color1:{color1}">
 		{score1}
 	</div>
-	<div class="bar2" style="--score2:{score2}; --color2:{color2}">
+	<div class="bar2" style="--score2:{score2 ? score2 : 1}; --color2:{color2}">
 		{score2}
 	</div>
 </div>
