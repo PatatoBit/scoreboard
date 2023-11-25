@@ -38,8 +38,23 @@ export interface QuadMatch {
 	blueScore: number;
 }
 
+export const QuadColourIndex = {
+	1: 'red',
+	2: 'yellow',
+	3: 'green',
+	4: 'blue'
+};
 export function isDuoMatch(matchData: object) {
 	if ('redScore' in matchData) return false;
 	else if ('colors' in matchData) return true;
 	else return null;
+}
+
+export function getColorName(hex: string) {
+	for (const [name, value] of Object.entries(colours)) {
+		if (value === hex) {
+			return name;
+		}
+	}
+	return null; // If the color is not found
 }
