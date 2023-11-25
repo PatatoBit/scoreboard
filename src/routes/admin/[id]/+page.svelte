@@ -2,6 +2,7 @@
 	import { db } from '$lib/firebase';
 	import {
 		collection,
+		deleteDoc,
 		doc,
 		increment,
 		onSnapshot,
@@ -12,6 +13,7 @@
 	import type { matchPage } from './+page';
 	import { getColorName, type DuoMatch, type QuadMatch, QuadColourIndex } from '$lib';
 	import { onDestroy } from 'svelte';
+	import { goto } from '$app/navigation';
 
 	export let data: matchPage;
 
@@ -43,6 +45,16 @@
 		});
 
 		console.log(`colors.${QuadColourIndex[index]}Score`);
+	}
+
+	async function deleteMatch() {
+		try {
+			await deleteDoc(docRef).then(() => {
+				goto('/admin');
+			});
+		} catch (error) {
+			console.error('Error removing document: ', error);
+		}
 	}
 
 	onDestroy(() => {
@@ -101,5 +113,7 @@
 {:else}
 	<p>else</p>
 {/if}
+
+<button on:click={deleteMatch}>Delete</button>
 
 <!-- If match is a type of DuoMatch -->
