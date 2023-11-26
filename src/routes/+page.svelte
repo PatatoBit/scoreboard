@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { DuoMatch, QuadMatch } from '$lib';
+	import { isDuoMatch, type DuoMatch, type QuadMatch } from '$lib';
 	import { colours } from '$lib/colours';
 	import DuoBar from '$lib/components/DuoBar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
@@ -48,7 +48,21 @@
 	const ubsubMatches = onSnapshot(matchQuery, (snapshot) => {
 		matches = [];
 		snapshot.forEach((doc) => {
-			matches = [...matches, doc.data() as DuoMatch | QuadMatch];
+			const data = doc.data();
+
+			if (!isDuoMatch(data)) {
+				// It's a QuadMatch
+				matches.push({
+					id: doc.id,
+					...data
+				} as QuadMatch);
+			} else {
+				// It's a DuoMatch
+				matches.push({
+					id: doc.id,
+					...data
+				} as DuoMatch);
+			}
 		});
 	});
 
@@ -87,7 +101,9 @@
 		<div class="matches">
 			{#each matches as match}
 				<!-- content here -->
-				<MatchPreview title={match.title} data={match} />
+				<a href={`/${match.id}`}>
+					<MatchPreview title={match.title} data={match} />
+				</a>
 			{/each}
 		</div>
 	</div>

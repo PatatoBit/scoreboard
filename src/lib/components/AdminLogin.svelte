@@ -10,3 +10,5 @@
 	<input type="password" placeholder="Password" required bind:value={password} />
 	<button type="submit" value="Submit">Login</button>
 </form>
+
+<a href="/">Go Back</a>
