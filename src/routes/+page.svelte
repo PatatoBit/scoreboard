@@ -75,7 +75,7 @@
 <div class="page">
 	<div class="section main-section">
 		<div class="title">
-			<img src="/hand.png" alt="hand holding paper" style="object-fit:contain" />
+			<img src="/rainbow.webp" alt="hand holding paper" style="object-fit:contain" />
 			<div class="text-title">
 				<h2 class="green-round">ผลคะแนนรวม</h2>
 				<h1>Total Scores</h1>
@@ -156,7 +156,7 @@
 	img {
 		/* position: absolute; */
 		/* width: 100%; */
-		height: 15em;
+		height: 13em;
 		/* flex: 0; */
 		z-index: 0;
 	}
@@ -166,6 +166,7 @@
 
 	.match-section {
 		flex: 2;
+		gap: 2rem;
 	}
 
 	.main-chart {
