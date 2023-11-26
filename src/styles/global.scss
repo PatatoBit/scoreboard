@@ -4,6 +4,7 @@
 :root {
 	--text: #2c2c2f;
 	--whitebg: #edf0fa;
+	--blackbg: #202020;
 	--red: #d74f49;
 	--yellow: #f2c550;
 	--green: #5e9c5a;
@@ -50,7 +51,7 @@ a {
 	font-weight: 400;
 
 	text-decoration: none;
-	color: var(--text);
+	color: inherit;
 }
 
 button {
