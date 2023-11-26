@@ -38,8 +38,8 @@
 			{
 				label: 'Victories',
 				data: scores,
-				backgroundColor: [colours.red, colours.yellow, colours.green, colours.blue],
-				hoverBackgroundColor: [colours.red, colours.yellow, colours.green, colours.blue]
+				backgroundColor: [colours.Red, colours.Yellow, colours.Green, colours.Blue],
+				hoverBackgroundColor: [colours.Red, colours.Yellow, colours.Green, colours.Blue]
 			}
 		]
 	};

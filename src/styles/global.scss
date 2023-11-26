@@ -65,6 +65,20 @@ input[type='submit'] {
 	font-family: 'ibm plex sans thai', sans-serif;
 }
 
+.icon-button {
+	// be the same size as rest of button
+
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	border: 2px solid var(--text);
+
+	background-color: var(--whitebg);
+
+	font-family: 'ibm plex sans thai', sans-serif;
+
+	width: 2.4em;
+}
+
 .page {
 	width: 100%;
 	min-height: 100vh;

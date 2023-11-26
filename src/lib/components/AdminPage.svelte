@@ -15,6 +15,8 @@
 
 	import { page } from '$app/stores';
 
+	import Fa from 'svelte-fa';
+
 	const mainRef = doc(db, 'matches', 'main_score');
 
 	async function addScore(color: string) {
@@ -83,7 +85,9 @@
 					<p><strong>{match.title}</strong></p>
 					<!-- <p>{new Date(match.createdAt).toLocaleString()}</p> -->
 
-					<a href="/admin/{match.id}">Edit 📝</a>
+					<a href="/admin/{match.id}"
+						><img class="icon-button" src="/icons/edit.svg" alt="Edit" /></a
+					>
 				</div>
 			{/each}
 		</div>
@@ -127,6 +131,12 @@
 
 		* {
 			flex: 1;
+		}
+
+		a {
+			flex: 0;
+			display: flex;
+			justify-content: center;
 		}
 	}
 

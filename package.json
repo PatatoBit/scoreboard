@@ -33,6 +33,7 @@
 		"chart.js": "^4.4.0",
 		"firebase": "^10.6.0",
 		"sass": "^1.69.5",
-		"svelte-chartjs": "^3.1.2"
+		"svelte-chartjs": "^3.1.2",
+		"svelte-fa": "^3.0.4"
 	}
 }
