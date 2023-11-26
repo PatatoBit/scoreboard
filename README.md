@@ -1,7 +1,7 @@
 # Todo
 
 ## User
-- New route for only that match display
+- Match preview remove a tag decoration
 
 ## Admin
-- Go back at email login
+- Full Stylings
