@@ -18,9 +18,8 @@
 <style lang="scss">
 	.bar-container {
 		display: flex;
-		height: 5rem;
-		border: 1px solid #ccc;
-		border-radius: 1rem;
+		height: 100%;
+		border-radius: 2rem;
 		overflow: hidden;
 	}
 

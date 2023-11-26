@@ -48,6 +48,9 @@ p,
 a {
 	font-size: 1.8rem;
 	font-weight: 400;
+
+	text-decoration: none;
+	color: var(--text);
 }
 
 button {
@@ -65,7 +68,6 @@ button {
 	gap: 10rem;
 
 	align-items: center;
-	// justify-content: center;
 
 	padding: 5rem;
 	background-color: var(--whitebg);

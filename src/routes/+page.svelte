@@ -135,6 +135,7 @@
 
 		&:h1 {
 			font-size: 5rem;
+			line-height: 4px !important;
 			margin: 0;
 		}
 

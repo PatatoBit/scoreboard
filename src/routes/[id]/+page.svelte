@@ -21,16 +21,36 @@
 	});
 </script>
 
-{#if match && 'scores' in match}
+<div class="page">
 	<h1>{match.title}</h1>
-	<DuoBar
-		score1={match.scores.score1}
-		score2={match.scores.score2}
-		color1={match.colors.color1}
-		color2={match.colors.color2}
-	/>
-{:else if match && 'redScore' in match}
-	<!-- else if content here -->
-	<h1>{match.title}</h1>
-	<QuadChart scores={[match.redScore, match.yellowScore, match.greenScore, match.blueScore]} />
-{/if}
+
+	{#if match && 'scores' in match}
+		<div class="score">
+			<DuoBar
+				score1={match.scores.score1}
+				score2={match.scores.score2}
+				color1={match.colors.color1}
+				color2={match.colors.color2}
+			/>
+		</div>
+	{:else if match && 'redScore' in match}
+		<!-- else if content here -->
+		<div class="score">
+			<QuadChart scores={[match.redScore, match.yellowScore, match.greenScore, match.blueScore]} />
+		</div>
+	{/if}
+</div>
+
+<style>
+	.page {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.score {
+		width: 100%;
+		height: 60%;
+	}
+</style>
