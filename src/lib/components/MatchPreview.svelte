@@ -29,6 +29,7 @@
 				score2={data.scores.score2}
 				color1={data.colors.color1}
 				color2={data.colors.color2}
+				numberSize="2rem"
 			/>
 		</div>
 	{:else if instanceOfQuadMatch(data)}

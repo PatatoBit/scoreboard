@@ -31,6 +31,7 @@
 				score2={match.scores.score2}
 				color1={match.colors.color1}
 				color2={match.colors.color2}
+				numberSize="10rem"
 			/>
 		</div>
 	{:else if match && 'redScore' in match}
@@ -51,6 +52,6 @@
 
 	.score {
 		width: 100%;
-		height: 60%;
+		height: 50rem;
 	}
 </style>
