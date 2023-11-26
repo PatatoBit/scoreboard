@@ -5,6 +5,4 @@
 	import { authUser } from '$lib/auth';
 </script>
 
-<div class="page">
-	<AdminPage />
-</div>
+<AdminPage />

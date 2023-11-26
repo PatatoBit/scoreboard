@@ -29,3 +29,11 @@
 
 	<a href="/admin">Back</a>
 </main>
+
+<style lang="scss">
+	.page {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+</style>

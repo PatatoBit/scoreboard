@@ -177,7 +177,6 @@
 	.matches {
 		display: flex;
 		flex-direction: column;
-		overflow-y: scroll;
 
 		gap: 1rem;
 	}

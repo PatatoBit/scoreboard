@@ -54,9 +54,15 @@ a {
 	color: inherit;
 }
 
-button {
-	padding: 0.5rem 1rem;
+button,
+input[type='submit'] {
+	padding: 1rem 2rem;
 	border-radius: 0.5rem;
+	border: 2px solid var(--text);
+
+	background-color: var(--whitebg);
+
+	font-family: 'ibm plex sans thai', sans-serif;
 }
 
 .page {
