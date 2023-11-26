@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Footer from '$lib/components/Footer.svelte';
 	import '../styles/global.scss';
 </script>
 
@@ -24,3 +25,5 @@
 <!-- Meta Tags Generated via https://www.opengraph.xyz -->
 
 <slot />
+
+<Footer />

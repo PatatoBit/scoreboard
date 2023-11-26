@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { isDuoMatch, type DuoMatch, type QuadMatch } from '$lib';
+	import { isDuoMatch, type DuoMatch, type QuadMatch, QuadColourIndex } from '$lib';
 	import { colours } from '$lib/colours';
 	import DuoBar from '$lib/components/DuoBar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
@@ -73,12 +73,12 @@
 </script>
 
 <div class="page">
-	<div class="section">
+	<div class="section main-section">
 		<div class="title">
-			<img src="/sport.webp" alt="Sports" style="object-fit:contain" />
+			<img src="/hand.png" alt="hand holding paper" style="object-fit:contain" />
 			<div class="text-title">
-				<h1>ผลคะแนนรวมกีฬาสี</h1>
-				<h2>Total Scores</h2>
+				<h2 class="green-round">ผลคะแนนรวม</h2>
+				<h1>Total Scores</h1>
 			</div>
 		</div>
 
@@ -91,7 +91,7 @@
 		</p>
 	</div>
 
-	<div class="section">
+	<div class="section match-section">
 		<h2>การแข่งขันล่าสุด</h2>
 		<p>Recent Matches</p>
 
@@ -109,14 +109,18 @@
 	</div>
 </div>
 
-<Footer />
-
 <style>
 	.title {
 		display: flex;
 		flex-direction: row;
-		flex-wrap: wrap;
-		flex: 2;
+		/* flex-wrap: wrap; */
+
+		justify-content: center;
+		align-content: center;
+		margin: 2rem auto 0;
+		width: 100%;
+
+		gap: 1rem;
 
 		/* text-align: center; */
 	}
@@ -125,12 +129,47 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-	}
 
+		text-align: center;
+		gap: 0.5rem;
+
+		&:h1 {
+			font-size: 5rem;
+			margin: 0;
+		}
+
+		&:h2 {
+			font-size: 1rem;
+			margin: 0;
+		}
+
+		@media (max-width: 768px) {
+			&:h1 {
+				font-size: 3rem;
+			}
+
+			&:h2 {
+				font-size: 1rem;
+			}
+		}
+	}
 	img {
 		/* position: absolute; */
-		width: 17rem;
+		/* width: 100%; */
+		height: 15em;
+		/* flex: 0; */
 		z-index: 0;
+	}
+	.main-section {
+		flex: 3;
+	}
+
+	.match-section {
+		flex: 2;
+	}
+
+	.main-chart {
+		height: 40rem;
 	}
 
 	.matches {
@@ -141,7 +180,9 @@
 		gap: 1rem;
 	}
 
-	.main-chart {
-		flex: 5;
+	.green-round {
+		background-color: var(--green);
+		border-radius: 3rem;
+		padding: 1rem;
 	}
 </style>

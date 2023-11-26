@@ -18,7 +18,7 @@
 <style lang="scss">
 	.bar-container {
 		display: flex;
-		height: 3rem;
+		height: 5rem;
 		border: 1px solid #ccc;
 		border-radius: 1rem;
 		overflow: hidden;
@@ -31,6 +31,7 @@
 		justify-content: center;
 		color: white;
 		font-weight: bold;
+		font-size: 1.8rem;
 	}
 
 	.bar1 {

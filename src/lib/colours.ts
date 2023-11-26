@@ -2,8 +2,8 @@
 export const colours = {
 	text: '#2c2c2f',
 	whitebg: '#edf0fa',
-	red: '#f25050',
+	red: '#d74f49',
 	yellow: '#f2c550',
-	green: '#56cb70',
-	blue: '#5677cb'
+	green: '#5e9c5a',
+	blue: '#4170ca'
 };
