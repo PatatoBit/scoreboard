@@ -1,7 +1,6 @@
 # Todo
 
-## User
-- Match preview remove a tag decoration
-
 ## Admin
 - Full Stylings
+- Move admin button top
+- Colour indication in edit
