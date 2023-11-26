@@ -37,18 +37,18 @@
 
 		<label for="color1">Color 1:</label>
 		<select bind:value={color1}>
-			<option value={colours.red}>Red</option>
-			<option value={colours.yellow}>Yellow</option>
-			<option value={colours.green}>Green</option>
-			<option value={colours.blue}>Blue</option>
+			<option value={colours.Red}>Red</option>
+			<option value={colours.Yellow}>Yellow</option>
+			<option value={colours.Green}>Green</option>
+			<option value={colours.Blue}>Blue</option>
 		</select>
 
 		<label for="color2">Color 2:</label>
 		<select bind:value={color2}>
-			<option value={colours.red}>Red</option>
-			<option value={colours.yellow}>Yellow</option>
-			<option value={colours.green}>Green</option>
-			<option value={colours.blue}>Blue</option>
+			<option value={colours.Red}>Red</option>
+			<option value={colours.Yellow}>Yellow</option>
+			<option value={colours.Green}>Green</option>
+			<option value={colours.Blue}>Blue</option>
 		</select>
 
 		<input type="submit" value="Submit" />
@@ -58,6 +58,12 @@
 </main>
 
 <style>
+	.page {
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
 	form {
 		display: flex;
 		flex-direction: column;

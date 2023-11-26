@@ -4,9 +4,11 @@
 
 	export let color1: string;
 	export let color2: string;
+
+	export let numberSize: string;
 </script>
 
-<div class="bar-container">
+<div class="bar-container" style="--numberSize: {numberSize}">
 	<div class="bar1" style="--score1:{score1 ? score1 : 1}; --color1:{color1}">
 		{score1}
 	</div>
@@ -18,10 +20,10 @@
 <style lang="scss">
 	.bar-container {
 		display: flex;
-		height: 5rem;
-		border: 1px solid #ccc;
-		border-radius: 1rem;
+		height: 100%;
+		border-radius: 2rem;
 		overflow: hidden;
+		font-size: var(--numberSize);
 	}
 
 	.bar1,
@@ -31,7 +33,6 @@
 		justify-content: center;
 		color: white;
 		font-weight: bold;
-		font-size: 1.8rem;
 	}
 
 	.bar1 {

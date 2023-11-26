@@ -23,12 +23,15 @@
 	<!-- Sport previews -->
 
 	{#if instanceOfDuoMatch(data)}
-		<DuoBar
-			score1={data.scores.score1}
-			score2={data.scores.score2}
-			color1={data.colors.color1}
-			color2={data.colors.color2}
-		/>
+		<div class="preview-bar">
+			<DuoBar
+				score1={data.scores.score1}
+				score2={data.scores.score2}
+				color1={data.colors.color1}
+				color2={data.colors.color2}
+				numberSize="2rem"
+			/>
+		</div>
 	{:else if instanceOfQuadMatch(data)}
 		<div class="preview-chart">
 			<QuadChart scores={[data.redScore, data.yellowScore, data.greenScore, data.blueScore]} />
@@ -49,8 +52,13 @@
 		border: 1px dashed rgb(177, 177, 177);
 	}
 
+	.preview-bar {
+		width: 100%;
+		height: 5rem;
+	}
+
 	.preview-chart {
 		width: 100%;
-		height: 10rem;
+		height: 20rem;
 	}
 </style>

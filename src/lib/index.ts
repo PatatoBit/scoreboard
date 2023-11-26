@@ -7,8 +7,8 @@ export const data = {
 		{
 			label: 'Victories',
 			data: [5, 3, 2, 1],
-			backgroundColor: [colours.red, colours.blue, colours.yellow, colours.green],
-			hoverBackgroundColor: [colours.red, colours.blue, colours.yellow, colours.green]
+			backgroundColor: [colours.Red, colours.Blue, colours.Yellow, colours.Green],
+			hoverBackgroundColor: [colours.Red, colours.Blue, colours.Yellow, colours.Green]
 		}
 	]
 };
@@ -39,10 +39,10 @@ export interface QuadMatch {
 }
 
 export const QuadColourIndex = {
-	1: 'red',
-	2: 'yellow',
-	3: 'green',
-	4: 'blue'
+	1: 'Red',
+	2: 'Yellow',
+	3: 'Green',
+	4: 'Blue'
 };
 export function isDuoMatch(matchData: object) {
 	if ('redScore' in matchData) return false;

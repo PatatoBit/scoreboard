@@ -10,11 +10,11 @@
 
 <style>
 	footer {
-		background-color: #333;
-		color: white;
+		background-color: var(--blackbg);
 		padding: 1em;
 		text-align: center;
 		width: 100%;
+		color: var(--whitebg);
 	}
 
 	@media (max-width: 600px) {

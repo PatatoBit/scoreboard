@@ -15,6 +15,8 @@
 
 	import { page } from '$app/stores';
 
+	import Fa from 'svelte-fa';
+
 	const mainRef = doc(db, 'matches', 'main_score');
 
 	async function addScore(color: string) {
@@ -55,42 +57,54 @@
 	});
 </script>
 
-<div>
-	<h1>Admin page</h1>
+<div class="page">
+	<div class="admin">
+		<h1>Admin page</h1>
 
-	<button on:click={signOut}>Sign Out</button>
+		<button on:click={signOut}>Sign Out</button>
 
-	<div class="main-score">
-		<button class="red" on:click={() => addScore('redScore')}>Red</button>
-		<button class="yellow" on:click={() => addScore('yellowScore')}>Yellow</button>
-		<button class="green" on:click={() => addScore('greenScore')}>Green</button>
-		<button class="blue" on:click={() => addScore('blueScore')}>Blue</button>
+		<div class="main-score">
+			<button class="red" on:click={() => addScore('redScore')}>Red</button>
+			<button class="yellow" on:click={() => addScore('yellowScore')}>Yellow</button>
+			<button class="green" on:click={() => addScore('greenScore')}>Green</button>
+			<button class="blue" on:click={() => addScore('blueScore')}>Blue</button>
+		</div>
+
+		<h2>Matches</h2>
+
+		<hr />
+
+		<div class="create-buttons">
+			<a href="/admin/duo"><button>Duo</button></a>
+			<a href="/admin/quad"><button>Quad</button></a>
+		</div>
+
+		<div class="matches">
+			{#each matches as match}
+				<div class="admin-match">
+					<p><strong>{match.title}</strong></p>
+					<!-- <p>{new Date(match.createdAt).toLocaleString()}</p> -->
+
+					<a href="/admin/{match.id}"
+						><img class="icon-button" src="/icons/edit.svg" alt="Edit" /></a
+					>
+				</div>
+			{/each}
+		</div>
 	</div>
-
-	<h2>Matches</h2>
-
-	<br />
-	<hr />
-	<br />
-
-	<div class="matches">
-		{#each matches as match}
-			<div class="admin-match">
-				<h3><strong>{match.title}</strong></h3>
-				<p>{new Date(match.createdAt).toLocaleString()}</p>
-
-				<a href="/admin/{match.id}">Edit 📝</a>
-			</div>
-		{/each}
-	</div>
-</div>
-
-<div class="create-buttons">
-	<a href="/admin/duo">Duo</a>
-	<a href="/admin/quad">Quad</a>
 </div>
 
 <style lang="scss">
+	.page {
+		justify-content: center;
+	}
+
+	.admin {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
 	.main-score {
 		display: flex;
 		justify-content: center;
@@ -110,10 +124,20 @@
 
 		border: 1px solid var(--text);
 		border-radius: 0.4rem;
-		padding: 0.5rem;
+		padding: 1rem;
 
 		gap: 1rem;
 		align-items: center;
+
+		* {
+			flex: 1;
+		}
+
+		a {
+			flex: 0;
+			display: flex;
+			justify-content: center;
+		}
 	}
 
 	.red {

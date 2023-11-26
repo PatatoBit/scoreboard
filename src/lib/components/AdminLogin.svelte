@@ -28,3 +28,12 @@
 
 	<a href="/">Go Back</a>
 </div>
+
+<style lang="scss">
+	.page {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+</style>

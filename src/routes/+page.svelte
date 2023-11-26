@@ -135,6 +135,7 @@
 
 		&:h1 {
 			font-size: 5rem;
+			line-height: 4px !important;
 			margin: 0;
 		}
 
@@ -176,7 +177,6 @@
 	.matches {
 		display: flex;
 		flex-direction: column;
-		overflow-y: scroll;
 
 		gap: 1rem;
 	}
