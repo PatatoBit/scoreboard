@@ -34,7 +34,7 @@
 
 	async function addQuad(index: 1 | 2 | 3 | 4, amount: number) {
 		await updateDoc(docRef, {
-			[`${QuadColourIndex[index]}Score`]: increment(amount)
+			[`${QuadColourIndex[index].toLowerCase()}Score`]: increment(amount)
 		});
 
 		console.log(`colors.${QuadColourIndex[index]}Score`);
