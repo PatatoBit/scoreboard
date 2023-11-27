@@ -71,11 +71,11 @@
 				</div>
 
 				<div class="score-changer {getColorName(match.colors.color2)?.toLowerCase()}">
-					<p>{match.scores.score1}</p>
+					<p>{match.scores.score2}</p>
 
 					<div>
-						<button on:click={() => addDuo(1, 1)}>+</button>
-						<button on:click={() => addDuo(1, -1)}>-</button>
+						<button on:click={() => addDuo(2, 1)}>+</button>
+						<button on:click={() => addDuo(2, -1)}>-</button>
 					</div>
 				</div>
 			</div>
