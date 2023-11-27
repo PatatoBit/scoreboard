@@ -31,7 +31,7 @@
 				score2={match.scores.score2}
 				color1={match.colors.color1}
 				color2={match.colors.color2}
-				numberSize="10rem"
+				numberSize="5rem"
 			/>
 		</div>
 	{:else if match && 'redScore' in match}
@@ -55,7 +55,10 @@
 	}
 
 	.score {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		width: 100%;
-		flex: 1;
+		flex: 1 1 0;
 	}
 </style>
