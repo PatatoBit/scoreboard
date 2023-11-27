@@ -81,32 +81,40 @@
 			</div>
 		{:else if match && 'redScore' in match}
 			<div class="colours">
-				<div>
-					<h3>Red</h3>
-					<p>{match.redScore}</p>
-					<button on:click={() => addQuad(1, 1)}>+</button>
-					<button on:click={() => addQuad(1, -1)}>-</button>
+				<div class="score-changer red">
+					<h3>{match.redScore}</h3>
+
+					<div>
+						<button on:click={() => addQuad(1, 1)}>+</button>
+						<button on:click={() => addQuad(1, -1)}>-</button>
+					</div>
 				</div>
 
-				<div>
-					<h3>Yellow</h3>
-					<p>{match.yellowScore}</p>
-					<button on:click={() => addQuad(2, 1)}>+</button>
-					<button on:click={() => addQuad(2, -1)}>-</button>
+				<div class="score-changer yellow">
+					<h3>{match.yellowScore}</h3>
+
+					<div>
+						<button on:click={() => addQuad(2, 1)}>+</button>
+						<button on:click={() => addQuad(2, -1)}>-</button>
+					</div>
 				</div>
 
-				<div>
-					<h3>Green</h3>
-					<p>{match.greenScore}</p>
-					<button on:click={() => addQuad(3, 1)}>+</button>
-					<button on:click={() => addQuad(3, -1)}>-</button>
+				<div class="score-changer green">
+					<h3>{match.greenScore}</h3>
+
+					<div>
+						<button on:click={() => addQuad(3, 1)}>+</button>
+						<button on:click={() => addQuad(3, -1)}>-</button>
+					</div>
 				</div>
 
-				<div>
-					<h3>Blue</h3>
-					<p>{match.blueScore}</p>
-					<button on:click={() => addQuad(4, 1)}>+</button>
-					<button on:click={() => addQuad(4, -1)}>-</button>
+				<div class="score-changer blue">
+					<h3>{match.blueScore}</h3>
+
+					<div>
+						<button on:click={() => addQuad(4, 1)}>+</button>
+						<button on:click={() => addQuad(4, -1)}>-</button>
+					</div>
 				</div>
 			</div>
 		{:else}
