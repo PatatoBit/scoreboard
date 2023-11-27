@@ -182,7 +182,7 @@
 	}
 
 	.green-round {
-		background-color: var(--green);
+		background-color: var(--highlight);
 		border-radius: 3rem;
 		padding: 1rem;
 	}

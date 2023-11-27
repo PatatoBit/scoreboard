@@ -9,6 +9,9 @@
 	--yellow: #f2c550;
 	--green: #5e9c5a;
 	--blue: #4170ca;
+
+	--highlight: #63b0f0;
+	--error: #d82b2b;
 }
 
 *,
@@ -58,21 +61,40 @@ button,
 input[type='submit'] {
 	padding: 1rem 2rem;
 	border-radius: 0.5rem;
-	border: 2px solid var(--text);
-
-	background-color: var(--whitebg);
+	border-color: transparent;
+	background-color: white;
+	box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
 
 	font-family: 'ibm plex sans thai', sans-serif;
+
+	transition: scale 0.2s ease-in-out;
+
+	&:hover {
+		cursor: pointer;
+		scale: 1.05;
+	}
+
+	&:active {
+		scale: 0.95;
+	}
+}
+
+.bad {
+	border: 1px solid var(--error);
+	color: var(--error);
+	box-shadow: none;
 }
 
 .icon-button {
 	// be the same size as rest of button
 
-	padding: 0.5rem;
+	padding: 1rem;
 	border-radius: 0.5rem;
-	border: 2px solid var(--text);
+	aspect-ratio: 1/1;
 
-	background-color: var(--whitebg);
+	background-color: var(--highlight);
+
+	box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
 
 	font-family: 'ibm plex sans thai', sans-serif;
 
@@ -123,16 +145,57 @@ form {
 	select {
 		padding: 0.5rem 1rem;
 		border-radius: 0.5rem;
-		border: 1px solid var(--text);
+
+		padding: 1rem 2rem;
+		border-radius: 0.5rem;
+		border-color: transparent;
+		box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
+
+		font-family: 'ibm plex sans thai', sans-serif;
+
+		transition: scale 0.2s ease-in-out;
 	}
 
 	select {
 		appearance: none;
 	}
 
+	input[type='submit'],
 	button[type='submit'] {
 		background-color: var(--green);
 		color: white;
 		border: none;
 	}
+}
+
+.score-changer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 14rem;
+	padding: 1.5rem;
+	border-radius: 1.5rem;
+
+	color: white;
+
+	button {
+		background-color: inherit;
+		color: white;
+	}
+}
+
+.red {
+	background-color: var(--red);
+}
+
+.yellow {
+	background-color: var(--yellow);
+}
+
+.green {
+	background-color: var(--green);
+}
+
+.blue {
+	background-color: var(--blue);
 }

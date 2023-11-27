@@ -20,6 +20,7 @@
 <style lang="scss">
 	.bar-container {
 		display: flex;
+		min-height: 100%;
 		height: 100%;
 		border-radius: 2rem;
 		overflow: hidden;

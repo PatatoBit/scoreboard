@@ -22,7 +22,7 @@
 </script>
 
 <div class="page">
-	<h1>{match.title}</h1>
+	<h1 id="title">{match.title}</h1>
 
 	{#if match && 'scores' in match}
 		<div class="score">
@@ -31,7 +31,7 @@
 				score2={match.scores.score2}
 				color1={match.colors.color1}
 				color2={match.colors.color2}
-				numberSize="10rem"
+				numberSize="5rem"
 			/>
 		</div>
 	{:else if match && 'redScore' in match}
@@ -50,8 +50,15 @@
 		justify-content: center;
 	}
 
+	#title {
+		flex: 0;
+	}
+
 	.score {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		width: 100%;
-		height: 50rem;
+		flex: 1 1 0;
 	}
 </style>

@@ -19,15 +19,27 @@
 
 	const mainRef = doc(db, 'matches', 'main_score');
 
-	async function addScore(color: string) {
+	async function addScore(color: string, amount: number) {
 		await updateDoc(mainRef, {
-			[color]: increment(1)
+			[color]: increment(amount)
 		});
 	}
 
 	const matchesRef = query(collection(db, 'matches'), orderBy('createdAt', 'desc'));
 
 	let matches: Array<DuoMatch | QuadMatch> = [];
+
+	let mainScores: QuadMatch = {
+		title: 'Main Score',
+		id: 'main_score',
+		createdAt: new Date().toISOString(),
+		redScore: 0,
+		yellowScore: 0,
+		greenScore: 0,
+		blueScore: 0
+	};
+
+	const mainScoreRef = doc(db, 'matches', 'main_score');
 
 	const matchesUnsub = onSnapshot(matchesRef, (snapshot) => {
 		matches = [];
@@ -52,8 +64,20 @@
 		});
 	});
 
+	const mainScoreUnsub = onSnapshot(mainScoreRef, (doc) => {
+		const data = doc.data();
+
+		if (data) {
+			mainScores = {
+				id: doc.id,
+				...data
+			} as QuadMatch;
+		}
+	});
+
 	onDestroy(() => {
 		matchesUnsub();
+		mainScoreUnsub();
 	});
 </script>
 
@@ -61,13 +85,44 @@
 	<div class="admin">
 		<h1>Admin page</h1>
 
-		<button on:click={signOut}>Sign Out</button>
+		<button class="bad" on:click={signOut}>Sign Out</button>
 
 		<div class="main-score">
-			<button class="red" on:click={() => addScore('redScore')}>Red</button>
-			<button class="yellow" on:click={() => addScore('yellowScore')}>Yellow</button>
-			<button class="green" on:click={() => addScore('greenScore')}>Green</button>
-			<button class="blue" on:click={() => addScore('blueScore')}>Blue</button>
+			<div class="score-changer red">
+				<h3>{mainScores.redScore}</h3>
+
+				<div>
+					<button on:click={() => addScore('redScore', 1)}>+</button>
+					<button on:click={() => addScore('redScore', -1)}>-</button>
+				</div>
+			</div>
+
+			<div class="score-changer yellow">
+				<h3>{mainScores.yellowScore}</h3>
+
+				<div>
+					<button on:click={() => addScore('yellowScore', 1)}>+</button>
+					<button on:click={() => addScore('yellowScore', -1)}>-</button>
+				</div>
+			</div>
+
+			<div class="score-changer green">
+				<h3>{mainScores.greenScore}</h3>
+
+				<div>
+					<button on:click={() => addScore('greenScore', 1)}>+</button>
+					<button on:click={() => addScore('greenScore', -1)}>-</button>
+				</div>
+			</div>
+
+			<div class="score-changer blue">
+				<h3>{mainScores.blueScore}</h3>
+
+				<div>
+					<button on:click={() => addScore('blueScore', 1)}>+</button>
+					<button on:click={() => addScore('blueScore', -1)}>-</button>
+				</div>
+			</div>
 		</div>
 
 		<h2>Matches</h2>
@@ -75,8 +130,12 @@
 		<hr />
 
 		<div class="create-buttons">
-			<a href="/admin/duo"><button>Duo</button></a>
-			<a href="/admin/quad"><button>Quad</button></a>
+			<p>Create:</p>
+
+			<div>
+				<a href="/admin/duo"><button>Duo</button></a>
+				<a href="/admin/quad"><button>Quad</button></a>
+			</div>
 		</div>
 
 		<div class="matches">
@@ -102,13 +161,17 @@
 	.admin {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		max-width: 40rem;
+		gap: 2rem;
 	}
 
 	.main-score {
 		display: flex;
-		justify-content: center;
+		justify-content: space-around;
 		align-items: center;
+		flex-wrap: wrap;
+
+		gap: 1rem;
 	}
 
 	.matches {
@@ -122,8 +185,10 @@
 		display: flex;
 		flex-direction: row;
 
-		border: 1px solid var(--text);
 		border-radius: 0.4rem;
+		background-color: white;
+
+		box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
 		padding: 1rem;
 
 		gap: 1rem;
@@ -140,19 +205,12 @@
 		}
 	}
 
-	.red {
-		background-color: var(--red);
-	}
+	.create-buttons {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
 
-	.yellow {
-		background-color: var(--yellow);
-	}
-
-	.green {
-		background-color: var(--green);
-	}
-
-	.blue {
-		background-color: var(--blue);
+		gap: 1rem;
 	}
 </style>
