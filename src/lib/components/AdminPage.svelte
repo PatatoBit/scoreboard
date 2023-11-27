@@ -85,7 +85,7 @@
 	<div class="admin">
 		<h1>Admin page</h1>
 
-		<button on:click={signOut}>Sign Out</button>
+		<button class="bad" on:click={signOut}>Sign Out</button>
 
 		<div class="main-score">
 			<div class="score-changer red">
@@ -130,8 +130,12 @@
 		<hr />
 
 		<div class="create-buttons">
-			<a href="/admin/duo"><button>Duo</button></a>
-			<a href="/admin/quad"><button>Quad</button></a>
+			<p>Create:</p>
+
+			<div>
+				<a href="/admin/duo"><button>Duo</button></a>
+				<a href="/admin/quad"><button>Quad</button></a>
+			</div>
 		</div>
 
 		<div class="matches">
@@ -158,7 +162,7 @@
 		display: flex;
 		flex-direction: column;
 		max-width: 40rem;
-		gap: 1rem;
+		gap: 2rem;
 	}
 
 	.main-score {
@@ -199,5 +203,14 @@
 			display: flex;
 			justify-content: center;
 		}
+	}
+
+	.create-buttons {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+
+		gap: 1rem;
 	}
 </style>

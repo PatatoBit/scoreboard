@@ -122,7 +122,7 @@
 		{/if}
 
 		<a href="/admin">Back</a>
-		<button on:click={deleteMatch}>Delete</button>
+		<button class="bad" on:click={deleteMatch}>Delete</button>
 	{:else}
 		<p>No Data</p>
 		<a href="/admin">Go Back</a>
