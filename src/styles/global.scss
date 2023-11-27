@@ -10,7 +10,7 @@
 	--green: #5e9c5a;
 	--blue: #4170ca;
 
-	--highlight: #eac38f;
+	--highlight: #f0a363;
 }
 
 *,
@@ -147,5 +147,21 @@ form {
 		background-color: var(--green);
 		color: white;
 		border: none;
+	}
+}
+
+.score-changer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 14rem;
+	padding: 1.5rem;
+	border-radius: 1.5rem;
+
+	color: white;
+
+	button {
+		background-color: inherit;
+		color: white;
 	}
 }
