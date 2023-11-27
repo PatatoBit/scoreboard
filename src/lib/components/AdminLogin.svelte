@@ -34,6 +34,11 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: center;
 		gap: 1rem;
+
+		form {
+			max-width: 40rem;
+		}
 	}
 </style>
