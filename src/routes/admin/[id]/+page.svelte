@@ -61,20 +61,22 @@
 
 		{#if match && 'scores' in match}
 			<div class="colours">
-				<div class="colour-side">
-					<p>{getColorName(match.colors.color1)}</p>
+				<div class="score-changer {getColorName(match.colors.color1)?.toLowerCase()}">
 					<p>{match.scores.score1}</p>
 
-					<button on:click={() => addDuo(1, 1)}>+</button>
-					<button on:click={() => addDuo(1, -1)}>-</button>
+					<div>
+						<button on:click={() => addDuo(1, 1)}>+</button>
+						<button on:click={() => addDuo(1, -1)}>-</button>
+					</div>
 				</div>
 
-				<div class="colour-side">
-					<p>{getColorName(match.colors.color2)}</p>
-					<p>{match.scores.score2}</p>
+				<div class="score-changer {getColorName(match.colors.color2)?.toLowerCase()}">
+					<p>{match.scores.score1}</p>
 
-					<button on:click={() => addDuo(2, 1)}>+</button>
-					<button on:click={() => addDuo(2, -1)}>-</button>
+					<div>
+						<button on:click={() => addDuo(1, 1)}>+</button>
+						<button on:click={() => addDuo(1, -1)}>-</button>
+					</div>
 				</div>
 			</div>
 		{:else if match && 'redScore' in match}

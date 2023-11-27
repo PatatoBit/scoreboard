@@ -200,20 +200,4 @@
 			justify-content: center;
 		}
 	}
-
-	.red {
-		background-color: var(--red);
-	}
-
-	.yellow {
-		background-color: var(--yellow);
-	}
-
-	.green {
-		background-color: var(--green);
-	}
-
-	.blue {
-		background-color: var(--blue);
-	}
 </style>
