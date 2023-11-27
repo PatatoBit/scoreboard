@@ -122,8 +122,10 @@
 		display: flex;
 		flex-direction: row;
 
-		border: 1px solid var(--text);
 		border-radius: 0.4rem;
+		background-color: white;
+
+		box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
 		padding: 1rem;
 
 		gap: 1rem;

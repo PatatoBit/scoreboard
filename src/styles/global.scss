@@ -9,6 +9,8 @@
 	--yellow: #f2c550;
 	--green: #5e9c5a;
 	--blue: #4170ca;
+
+	--highlight: #eac38f;
 }
 
 *,
@@ -58,11 +60,22 @@ button,
 input[type='submit'] {
 	padding: 1rem 2rem;
 	border-radius: 0.5rem;
-	border: 2px solid var(--text);
-
-	background-color: var(--whitebg);
+	border-color: transparent;
+	background-color: white;
+	box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
 
 	font-family: 'ibm plex sans thai', sans-serif;
+
+	transition: scale 0.2s ease-in-out;
+
+	&:hover {
+		cursor: pointer;
+		scale: 1.05;
+	}
+
+	&:active {
+		scale: 0.95;
+	}
 }
 
 .icon-button {
@@ -70,9 +83,10 @@ input[type='submit'] {
 
 	padding: 0.5rem;
 	border-radius: 0.5rem;
-	border: 2px solid var(--text);
+	border: 2px solid var(--blackbg);
+	aspect-ratio: 1/1;
 
-	background-color: var(--whitebg);
+	background-color: var(--highlight);
 
 	font-family: 'ibm plex sans thai', sans-serif;
 
@@ -123,7 +137,6 @@ form {
 	select {
 		padding: 0.5rem 1rem;
 		border-radius: 0.5rem;
-		border: 1px solid var(--text);
 	}
 
 	select {

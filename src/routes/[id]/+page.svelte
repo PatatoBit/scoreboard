@@ -22,7 +22,7 @@
 </script>
 
 <div class="page">
-	<h1>{match.title}</h1>
+	<h1 id="title">{match.title}</h1>
 
 	{#if match && 'scores' in match}
 		<div class="score">
@@ -50,8 +50,12 @@
 		justify-content: center;
 	}
 
+	#title {
+		flex: 0;
+	}
+
 	.score {
 		width: 100%;
-		height: 50rem;
+		flex: 1;
 	}
 </style>
