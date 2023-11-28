@@ -8,3 +8,4 @@
 ## Admin
 - Move admin button top
 - Match editor label type
+- Go back home link
