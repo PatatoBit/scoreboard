@@ -141,6 +141,7 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
+		flex-wrap: wrap;
 		gap: 2rem;
 	}
 </style>
