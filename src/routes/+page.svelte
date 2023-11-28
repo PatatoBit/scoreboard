@@ -110,6 +110,12 @@
 </div>
 
 <style>
+	.page {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+	}
+
 	.title {
 		display: flex;
 		flex-direction: row;
